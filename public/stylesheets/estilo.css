@@ -1,0 +1,108 @@
+/* font-family: 'Noto Sans TC', sans-serif; (thin 100 y light 300)*/
+
+.body{
+    background-color: #fafafa;
+}
+
+
+.navbar-brand{
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.navbar{
+    position: sticky;  /*Para que el navbar no quede por encima de lo que sigue*/
+}
+
+.footerdelfooter{
+    background-color: rgb(26, 8, 26);
+    color: #fafafa;
+}
+
+.footerdelfooter p{
+    margin-bottom: 0px;
+}
+
+.linkList{
+    list-style: none;
+    padding-left: 5px;
+}
+
+.navegacion{
+    padding-left: 50px;
+}
+
+.rowParaFooter{ /*Para todo el footer*/
+    margin-right: 0px;
+}
+
+.linkRedes{
+    color: white;
+}
+
+.loremFooter{
+    color: rgb(224, 224, 224);
+}
+
+.todoBanner{
+    padding-top: 25px;
+}
+
+.bannerHome{
+    background-color: #efefef; /*sacar esto despues*/
+    overflow: hidden;
+}
+
+.bannerEnvios, .bannerTiempo, .banner10off{
+    padding-left: 35px;
+}
+
+.productoDestacado{
+    padding-bottom: 30px;
+}
+
+.precio{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+}
+
+.fa-whatsapp{
+    color: white;
+}
+
+.fa-envelope{
+    color: whitesmoke;
+}
+
+.hoverProducto a img { /*Imagenes de producto sin el mouse encima*/
+    opacity: 0.7;
+}
+
+.hoverProducto a img:hover{ /*Imagenes de producto cuando tienen el mouse encima*/
+    opacity: 1;
+}
+
+footer{
+    position: sticky;
+}
+
+.todoFooter{
+    background-color: #505050;
+}
+
+.textoEnviosDomicilio{
+    font-size: 19px;
+}
+
+.seccionPrivada{
+    color: red;
+}
+
+.botonLink {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-family: arial, sans-serif;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+  }
