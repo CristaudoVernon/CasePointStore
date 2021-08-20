@@ -1,0 +1,22 @@
+<div class="container" style="margin-top: 100px;">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h4>Añadir un nuevo pedido a la agenda</h4>
+            <form action="/admin/administrador/agregar" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Cliente" name="cliente">
+                </div>
+                <div class="form-group">
+                    <textarea type="text" class="form-control" placeholder="Producto" name="producto"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Cuando pedir y entregar" name="pediryentregar">
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+            {{#if error}}
+            <h6 style="color: red;">{{message}}</h6>
+            {{/if}}
+        </div>
+    </div>
+</div>
