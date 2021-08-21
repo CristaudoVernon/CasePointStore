@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
+var fileUpload = require('express-fileupload');
 
 require('dotenv').config();
 
@@ -28,6 +29,11 @@ app.use(session({ //aca es donde vamos a usar esa var 'session'
   secret: 'SuperClaveSecreta420',
   resave: false,
   saveUninitialized: true
+}));
+
+app.use(fileUpload({
+  useTempFiles:true,
+  tempFileDir: '/tmp/'
 }));
 
 secured = async(req, res, next) => {

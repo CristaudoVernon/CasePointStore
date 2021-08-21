@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-6 offset-3">
             <h4>Modificar un pedido</h4>
-            <form action="/admin/administrador/modificar" method="post">
+            <form action="/admin/administrador/modificar" method="post" enctype="multipart/form-data">
                 <input type="hidden" value="{{pedido.id}}" name="id">
                 <div class="form-group">
                     <label for="">Cliente</label>
@@ -16,6 +16,15 @@
                     <label for="">Pedir y entregar</label>
                     <input type="text" class="form-control" name="pediryentregar" value="{{pedido.pediryentregar}}">
                 </div>
+                <div class="form-group">
+                    <p>
+                        <label>Imagen: <input type="file" name="imagen" id="imagen"></label>
+                    </p>
+                    <p>
+                        <label><input type="checkbox" name="img_delete" id="id_delete" value="1">Eliminar imagen</label>
+                        <input type="hidden" name="img_original" value="{{pedido.img_id}}">
+                    </p>
+                </div>
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
             {{#if error}}
@@ -24,3 +33,4 @@
         </div>
     </div>
 </div>
+

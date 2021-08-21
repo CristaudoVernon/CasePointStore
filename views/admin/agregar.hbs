@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-6 offset-3">
             <h4>Añadir un nuevo pedido a la agenda</h4>
-            <form action="/admin/administrador/agregar" method="post">
+            <form action="/admin/administrador/agregar" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Cliente" name="cliente">
                 </div>
@@ -11,6 +11,9 @@
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Cuando pedir y entregar" name="pediryentregar">
+                </div>
+                <div class="form-group">
+                    <label>Imagen: <input type="file" name="imagen" id="imagen"></label>
                 </div>
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
