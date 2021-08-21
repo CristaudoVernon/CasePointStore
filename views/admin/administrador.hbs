@@ -1,7 +1,8 @@
 <div class="container" style="margin-top: 120px;">
     <div class="row">
         <div class="col-12">
-            <h3 class="text-center">Hola {{usuario}}! <a href="../admin/login/logout" class="btn btn-sm btn-danger">Cerrar Sesión <i class="fa fa-sign-out-alt"></i></a></h3>
+            <h3 class="text-center">Hola {{usuario}}! <a href="../admin/login/logout"
+                    class="btn btn-sm btn-danger">Cerrar Sesión <i class="fa fa-sign-out-alt"></i></a></h3>
         </div>
     </div>
 
@@ -9,8 +10,17 @@
         <div class="col-7" style="margin-top: 9px;">
             <h2>Agenda de pedidos</h2>
         </div>
-        <div class="col-5 text-right">{{!-- despues fijate este text right--}}
+        <div class="col-2 text-right">{{!-- despues fijate este text right--}}
             <a href="/admin/administrador/agregar" class="btn btn-success"> <i class="fa fa-plus"></i> Nuevo</a>
+        </div>
+        <div class="col-3 text-right">
+            <form class="form-inline" action="/admin/administrador" method="get">
+                <input class="form-control" type="search" name="q" placeholder="Buscar" aria-label="Search">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </form>
+
         </div>
     </div>
 
@@ -19,31 +29,38 @@
             <table class="table">
                 <thead>
                     <tr class="table-dark">
-                      <th scope="col">ID</th>
-                      <th scope="col">Cliente</th>
-                      <th scope="col">Producto</th>
-                      <th scope="col" class="">Pedir y entregar</th>
-                      <th scope="col" class="">Imagen</th>
-                      <th scope="col" class="text-right" style="color: #c50000;">Acciones</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col" class="">Pedir y entregar</th>
+                        <th scope="col" class="">Imagen</th>
+                        <th scope="col" class="text-right" style="color: #c50000;">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each agenda}}
                     <tr>
-                      <th>{{id}}</th>
-                      <td>{{cliente}}</td>
-                      <td>{{producto}}</td>
-                      <td>{{pediryentregar}}</td>
-                      <td class="">{{{imagen}}}</td>
-                      <td class="text-right">
-                          <a href="/admin/administrador/modificar/{{id}}" class="btn btn-primary"><i class="fa fa-pencil-alt"></i></a>
-                          <a href="/admin/administrador/eliminar/{{id}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                      </td>
+                        <th>{{id}}</th>
+                        <td>{{cliente}}</td>
+                        <td>{{producto}}</td>
+                        <td>{{pediryentregar}}</td>
+                        <td class="">{{{imagen}}}</td>
+                        <td class="text-right">
+                            <a href="/admin/administrador/modificar/{{id}}" class="btn btn-primary"><i
+                                    class="fa fa-pencil-alt"></i></a>
+                            <a href="/admin/administrador/eliminar/{{id}}" class="btn btn-danger"><i
+                                    class="fa fa-trash"></i></a>
+                        </td>
                     </tr>
                     {{/each}}
                 </tbody>
             </table>
+            {{#if is_search}}
+            {{#unless agenda.length}}
+            <p> No se encontraron resultados para "<b>{{q}}</b>"</p>
+            {{/unless}}
+            {{/if}}
         </div>
     </div>
-    
+
 </div>

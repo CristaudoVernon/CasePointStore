@@ -6,10 +6,17 @@ var cloudinary = require('cloudinary').v2;
 var uploader = util.promisify(cloudinary.uploader.upload);
 var destroy = util.promisify(cloudinary.uploader.destroy)
 
-//GET listar pedidos de la agenda
+//GET listar pedidos de la agenda + busqueda
 router.get('/', async function (req, res, next) {
 
-  var agenda = await administradorModel.getAgenda();
+  //var agenda = await administradorModel.getAgenda();
+
+  var agenda
+  if (req.query.q === undefined) {
+    agenda = await administradorModel.getAgenda();
+  } else {
+    agenda = await administradorModel.buscarPedidos(req.query.q);
+  }
 
   agenda = agenda.map(pedido => {
     if (pedido.img_id) {
@@ -33,7 +40,9 @@ router.get('/', async function (req, res, next) {
   res.render('admin/administrador', {
     layout: 'admin/layout',
     usuario: req.session.nombre,
-    agenda
+    agenda,
+    is_search: req.query.q !== undefined,
+    q: req.query.q
   });
 });
 
@@ -135,5 +144,6 @@ router.post('/modificar', async (req, res, next) => {
     });
   }
 });
+
 
 module.exports = router;
